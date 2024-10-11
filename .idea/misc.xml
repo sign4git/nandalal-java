@@ -6,6 +6,8 @@
       <list>
         <option value="$PROJECT_DIR$/SpringFramework/pom.xml" />
         <option value="$PROJECT_DIR$/SpringFrameworkJavaAnnotations/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBootFirst/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBootWithLayers/pom.xml" />
       </list>
     </option>
   </component>

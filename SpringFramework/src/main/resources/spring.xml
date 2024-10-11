@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+<!--    Bean without ID-->
+<!--    <bean class="org.example.Alien"/>-->
+
+<!--    Bean with prototype scope, if not mentioned by default it is Singleton-->
+    <!--    <bean id="alien1" class="org.example.Alien" scope="prototype"/>-->
+
+<!--    Bean with setter injection-->
+<!--<bean id="setterAlien" class="org.example.Alien">-->
+<!--    <property name="age" value="21"/>-->
+<!--</bean>-->
+
+<!--    Bean with reference non-primitive object-->
+<!--    <bean id="nonPrimitiveAlien" class="org.example.Alien">-->
+<!--        <property name="age" value="21"/>-->
+<!--        <property name="myLaptop" ref="laptop"/>-->
+<!--    </bean>-->
+<!--    <bean id="laptop" class="org.example.Laptop">-->
+<!--        <property name="ramMemory" value="16 GB"/>-->
+<!--        <property name="hardDiskMemory" value="512 GB"/>-->
+<!--    </bean>-->
+
+<!--    Bean with constructor injection-->
+    <bean id="constructorAlien" class="org.example.Alien">
+
+<!--        Match the sequence of constructor in case of just value-->
+<!--        <constructor-arg  value="1"/>-->
+<!--        <constructor-arg  value="5"/>-->
+<!--        <constructor-arg  ref="laptopObject"/>-->
+
+<!--        If you dont want sequence as above then use type.-->
+<!--        But this works well for different data types in constructor arg.-->
+<!--        If same data-type are present the bean gets created according to sequence of-->
+<!--        constructor variable-->
+<!--        <constructor-arg type="org.example.Laptop" ref="laptopObject"/>-->
+<!--        <constructor-arg type="int" value="5"/>-->
+<!--        <constructor-arg type="int" value="1"/>-->
+
+<!--        To avoid sequence as well as type matching, use index. Generally preferred-->
+<!--        <constructor-arg index="2" ref="laptopObject"/>-->
+<!--        <constructor-arg index="0" value="2"/>-->
+<!--        <constructor-arg index="1" value="10"/>-->
+
+<!--        We can also use name, but the constructor arg should follow sequence-->
+<!--        <constructor-arg name="age" value="3"/>-->
+<!--        <constructor-arg name="warrantyYears" value="15"/>-->
+<!--        <constructor-arg name="myLaptop" ref="laptopObject"/>-->
+
+
+<!--        In case of constructor-arg if name is not in sequence, -->
+<!--        create @ConstructorProperties({"age","warrantyYears","myLaptop"}),-->
+<!--        with same sequence as constructor-->
+        <constructor-arg  name="warrantyYears" value="5"/>
+        <constructor-arg  name="myLaptop" ref="laptopObject"/>
+        <constructor-arg  name="age" value="1"/>
+
+
+    </bean>
+    <bean id="laptopObject" class="org.example.Laptop">
+        <property name="ramMemory" value="32 GB"/>
+        <property name="hardDiskMemory" value="1024 GB"/>
+    </bean>
+
+<!--    <bean id="billPaymentInterfaceUsingProperties" class="org.example.BillPayment">-->
+<!--        <property name="billAmount" value="100.200000"/>-->
+<!--        <property name="creditCard" ref="amex"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="billPaymentInterfaceUsingConstructor" class="org.example.BillPayment">-->
+<!--        <constructor-arg index="0" value="11.2"/>-->
+<!--        <constructor-arg index="1" ref="visa"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="amex" class="org.example.AmericanExpress">-->
+<!--        <property name="cvvDigits" value="4"/>-->
+<!--        <property name="merchantFee" value="5.0"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="visa" class="org.example.Visa">-->
+<!--        <property name="cvvDigits" value="3"/>-->
+<!--        <property name="merchantFee" value="2.0"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="autowiringBillPayment" class="org.example.BillPayment" autowire="byType">-->
+<!--        <property name="billAmount" value="111.123"/>-->
+<!--    </bean>-->
+
+    <bean id="creditCard" class="org.example.Visa" primary="true">
+        <property name="cvvDigits" value="3"/>
+        <property name="merchantFee" value="2.15"/>
+    </bean>
+
+    <bean id="creditCard1" class="org.example.AmericanExpress" lazy-init="true">
+        <property name="cvvDigits" value="4"/>
+        <property name="merchantFee" value="5.15"/>
+    </bean>
+
+    <bean id="innerBeanBillPayment" class="org.example.BillPayment">
+        <property name="billAmount" value="23.07"/>
+        <property name="creditCard">
+            <bean class="org.example.Visa" >
+                <property name="cvvDigits" value="6"/>
+                <property name="merchantFee" value="10.15"/>
+            </bean>
+        </property>
+    </bean>
+
+
+
+</beans>

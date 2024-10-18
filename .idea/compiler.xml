@@ -8,17 +8,24 @@
         <outputRelativeToContentRoot value="true" />
         <module name="SpringFrameworkJavaAnnotations" />
         <module name="SpringBootWithLayers" />
-        <module name="SpringBootFirst" />
+        <module name="SpringBootJDBC" />
         <module name="SpringFramework" />
+        <module name="SpringBootWebServlet" />
+        <module name="SpringBootFirst" />
+        <module name="SpringBootWebDemo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="SpringBootWeb" target="17" />
       <module name="SpringFramework (1)" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="SpringBootFirst" options="-parameters" />
+      <module name="SpringBootJDBC" options="-parameters" />
+      <module name="SpringBootWeb" options="-parameters" />
+      <module name="SpringBootWebDemo" options="-parameters" />
       <module name="SpringBootWithLayers" options="-parameters" />
     </option>
   </component>

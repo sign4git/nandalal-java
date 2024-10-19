@@ -12,6 +12,7 @@
         <module name="SpringFramework" />
         <module name="SpringBootWebServlet" />
         <module name="SpringBootFirst" />
+        <module name="JobAppSpringWeb" />
         <module name="SpringBootWebDemo" />
       </profile>
     </annotationProcessing>
@@ -22,6 +23,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="JobAppSpringWeb" options="-parameters" />
       <module name="SpringBootFirst" options="-parameters" />
       <module name="SpringBootJDBC" options="-parameters" />
       <module name="SpringBootWeb" options="-parameters" />

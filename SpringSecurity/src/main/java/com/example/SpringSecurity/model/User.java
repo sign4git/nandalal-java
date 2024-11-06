@@ -2,17 +2,19 @@ package com.example.SpringSecurity.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+@Table(name = "users")
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Student {
+@Data
+public class User {
     @Id
     private Integer id;
-    private String name;
-    private String department;
+    private String username;
+    private String password;
 }

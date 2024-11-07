@@ -1,4 +1,4 @@
-package com.example.springbootjpajobapp;
+package com.example.springbootjpajobapp.controller;
 
 
 

@@ -10,7 +10,6 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
-import java.security.spec.AlgorithmParameterSpec;
 import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;

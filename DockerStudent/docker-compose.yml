@@ -1,0 +1,53 @@
+#version: "3.7"
+#
+#services:
+#  springbootdocker:
+#    build: .
+#    ports:
+#      - "8080:8080"
+#
+#  postgres:
+#    image: postgres:latest
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: 0000
+#      POSTGRES_DB: dockerpgdb
+#    ports:
+#      - "5433:5432"
+
+version: "3.8"
+
+services:
+  psql-db:
+    image: postgres
+    container_name: psql-db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=0000
+      - POSTGRES_DB=dockerpgdb
+    ports:
+      - '5433:5432'
+    networks:
+      - s-network
+    volumes:
+      - postgres-s-data:/var/lib/postgresql/data
+
+  springbootdocker:
+    container_name: springbootdocker
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    networks:
+      - s-network
+    depends_on:
+      - psql-db
+
+networks:
+  s-network:
+    driver: bridge
+
+volumes:
+  postgres-s-data:

@@ -33,9 +33,15 @@ public class QuizController {
         return response;
     }
 
-    @PostMapping("{id}/result")
-    public ResponseEntity<Integer> getScore(@PathVariable Integer id,@RequestBody List<QuizResponse> userAnswerList){
-        ResponseEntity<Integer> response = quizService.calculateScore(id,userAnswerList);
+    @GetMapping("/getAllQuiz")
+    public ResponseEntity<List<Quiz>> getAllQuiz(){
+        ResponseEntity<List<Quiz>> response= quizService.findAll();
+        return response;
+    }
+
+    @PostMapping("/score")
+    public ResponseEntity<Integer> getScore(@RequestBody List<QuizResponse> userAnswerList){
+        ResponseEntity<Integer> response = quizService.calculateScore(userAnswerList);
         return response;
     }
 

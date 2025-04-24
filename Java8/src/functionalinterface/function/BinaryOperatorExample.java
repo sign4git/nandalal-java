@@ -1,4 +1,4 @@
-package function;
+package functionalinterface.function;
 
 import java.util.Comparator;
 import java.util.function.BinaryOperator;

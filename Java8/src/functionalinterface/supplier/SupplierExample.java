@@ -1,4 +1,4 @@
-package supplier;
+package functionalinterface.supplier;
 
 import functionalinterface.datamodel.Student;
 import functionalinterface.datamodel.StudentDataBase;

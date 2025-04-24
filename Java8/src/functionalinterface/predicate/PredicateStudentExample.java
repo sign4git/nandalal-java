@@ -1,4 +1,4 @@
-package predicate;
+package functionalinterface.predicate;
 
 import functionalinterface.datamodel.Student;
 import functionalinterface.datamodel.StudentDataBase;

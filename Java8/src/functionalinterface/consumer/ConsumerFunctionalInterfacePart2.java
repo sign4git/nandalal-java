@@ -1,4 +1,4 @@
-package consumer;
+package functionalinterface.consumer;
 
 import functionalinterface.datamodel.Student;
 import functionalinterface.datamodel.StudentDataBase;

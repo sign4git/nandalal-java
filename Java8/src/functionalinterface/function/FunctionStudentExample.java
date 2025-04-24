@@ -1,8 +1,8 @@
-package function;
+package functionalinterface.function;
 
 import functionalinterface.datamodel.Student;
 import functionalinterface.datamodel.StudentDataBase;
-import predicate.PredicateStudentExample;
+import functionalinterface.predicate.PredicateStudentExample;
 
 import java.util.HashMap;
 import java.util.List;

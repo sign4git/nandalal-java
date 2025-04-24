@@ -1,4 +1,4 @@
-package function;
+package functionalinterface.function;
 
 public class FunctionExample2 {
     public static String doConcat(String str){

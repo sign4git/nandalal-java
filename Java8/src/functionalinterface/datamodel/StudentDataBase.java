@@ -2,12 +2,23 @@ package functionalinterface.datamodel;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class StudentDataBase {
 
     public static Supplier<Student> studentSupplier = () -> new Student("Adam",2,
             3.6, "male", Arrays.asList("swimming", "basketball","volleyball"));
+
+    public static Laptop laptopstudent = new Laptop();
+    public static Supplier<Student> studentSupplierWithLaptop = () ->
+    {
+        Laptop laptop = new Laptop();
+        laptop.setName("HP Pavilion Notebook");
+        laptop.setModel("n208-tx");
+        return new Student("Adam", 2,
+                3.6, "male", Arrays.asList("swimming", "basketball", "volleyball"), 10, Optional.ofNullable(laptop));
+    };
     /**
      * Total of 6 students in the database.
      * @return

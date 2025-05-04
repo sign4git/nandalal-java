@@ -2,6 +2,7 @@ package functionalinterface.datamodel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Student {
     private String name;
@@ -10,6 +11,7 @@ public class Student {
     private String gender;
     List<String> activities = new ArrayList<>();
     private int noteBooks;
+    private Optional<Laptop> laptop = Optional.empty();
 
     public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities, int notebooks) {
         this.name = name;
@@ -18,6 +20,24 @@ public class Student {
         this.gender = gender;
         this.activities = activities;
         this.noteBooks = notebooks;
+    }
+
+    public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities, int notebooks, Optional<Laptop> laptop) {
+        this.name = name;
+        this.gradeLevel = gradeLevel;
+        this.gpa = gpa;
+        this.gender = gender;
+        this.activities = activities;
+        this.noteBooks = notebooks;
+        this.laptop = laptop;
+    }
+
+    public Optional<Laptop> getLaptop() {
+        return laptop;
+    }
+
+    public void setLaptop(Optional<Laptop> laptop) {
+        this.laptop = laptop;
     }
 
     public int getNoteBooks() {
@@ -90,6 +110,7 @@ public class Student {
         this.activities = activities;
     }
 
+
     @Override
     public String toString() {
         return "Student{" +
@@ -98,8 +119,8 @@ public class Student {
                 ", gpa=" + gpa +
                 ", gender='" + gender + '\'' +
                 ", activities=" + activities +
+                ", noteBooks=" + noteBooks +
+                ", laptop=" + laptop +
                 '}';
     }
-
-
 }
